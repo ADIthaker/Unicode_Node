@@ -16,10 +16,10 @@
     padding: 10px 16px;
 
 }
-p{
+.para{
     margin:19px ;
 }
-.next-btn{
+button{
     width:150px;
     padding:8px 8px;
     background-color:#eee;
@@ -29,17 +29,31 @@ p{
     border-radius: 4px;
     margin:12px 8px;
 }
-.next-btn:hover{
+button a{
+    text-decoration: none;
+    color:black
+
+}
+button:hover{
     background-color: #ccc;
     cursor:pointer;
-
+   
 }
 @media (min-width:500px){
     .root{
         min-width:500px;
         width:600px;
     }
-    .next-btn{
+    button{
         width:200px;
+    }
+    button:hover{
+        background-color: #ccc;
+        cursor:pointer;
+    
+    }
+    button a{
+        text-decoration: none;
+        color:black;
     }
 }

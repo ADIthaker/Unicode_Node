@@ -8,30 +8,34 @@
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-    <div class='root'>
+    <div class='root' id="root">
         <h1>Jokes API</h1>
-        <p>id : <%=id%></p>
-        <p>Category : <%=category%></p>
-        <% if (type==='single') {%>
-            <p>Joke : <b><%=joke%></b></p>
-        <%}else{%>
-            <p>Setup : <i><%=setup%></i></p>
-            <p>Delivery : <b><%=delivery%></b></p>
-        <%}%>
-        <button class="next-btn" >Another 
+        <p class="para" id="id">Id : <%=id%></p>
+        <p class="para" id="category">Category : <%=category%></p>
+        
+            <% if (type==='single') {%>
+                <p class="para" id="joke">Joke :<b><%=joke%></b></p>
+            <%}else{%>
+                <p  class="para" id="setup">Setup : <i><%=setup%></i></p>
+                <p  class="para" id="delivery">Delivery : <b><%=delivery%></b></p>
+            <%}%>
+       
+        <button class="btn" ><a href="<%=type==='single'? '/single':'twopart'%>">Another 
             <%if (type==='twopart') {%>
                 two part 
            <% }else {%>
             <%=type%>
             <%}%>
-            joke!</button>
-        <button class="next-btn" > Now a 
+            joke!</a></button>
+        <button class="btn"> <a href="<%=type==='twopart'? '/single':'twopart'%>">Now a 
             <%if (type==='single'){%>
             two part joke!
             <%}else{%>
                 single joke!
             <%}%>
+        </a>
         </button>
     </div>
+
 </body>
 </html>

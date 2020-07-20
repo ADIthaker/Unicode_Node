@@ -8,7 +8,7 @@ app.set('view engine','ejs');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/singlejokes',(req,res,next)=>{
+app.get('/single',(req,res,next)=>{
     axios.get('https://sv443.net/jokeapi/v2/joke/Any?type=single')
     .then(response=>{
         // console.log(response.data);
@@ -26,7 +26,7 @@ app.get('/singlejokes',(req,res,next)=>{
     });
 });
 
-app.get('/twopartjokes',(req,res,next)=>{
+app.get('/twopart',(req,res,next)=>{
     axios.get('https://sv443.net/jokeapi/v2/joke/Any?type=twopart')
     .then(response=>{
         res.render('index',{
