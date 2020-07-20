@@ -35,12 +35,13 @@ app.get('/twopartjokes',(req,res,next)=>{
             delivery:response.data.delivery,
             id:response.data.id,
             type:response.data.type
-        })
-        .catch(err=> 
-        {res.status(500).send('Oops something went wrong!');
+        });   
+    })
+    .catch(err=> 
+        {
+        res.status(500).send('Oops something went wrong!');
         console.log(err);
         });
-    })
 })
 
 
