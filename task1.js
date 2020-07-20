@@ -9,6 +9,6 @@ list.forEach(str=>{
             Maths :temp[2],
             English : temp[3]
         }
-    })
-})
+    });
+});
 console.log(ans);
