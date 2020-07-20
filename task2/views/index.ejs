@@ -18,7 +18,13 @@
             <p>Setup : <i><%=setup%></i></p>
             <p>Delivery : <b><%=delivery%></b></p>
         <%}%>
-        <button class="next-btn" >Another <%=type%> joke!</button>
+        <button class="next-btn" >Another 
+            <%if (type==='twopart') {%>
+                two part 
+           <% }else {%>
+            <%=type%>
+            <%}%>
+            joke!</button>
         <button class="next-btn" > Now a 
             <%if (type==='single'){%>
             two part joke!
