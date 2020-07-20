@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jokes</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <div class='root'>
+        <h1>Jokes API</h1>
+        <p>id : <%=id%></p>
+        <p>Category : <%=category%></p>
+        <% if (type==='single') {%>
+            <p>Joke : <b><%=joke%></b></p>
+        <%}else{%>
+            <p>Setup : <i><%=setup%></i></p>
+            <p>Delivery : <b><%=delivery%></b></p>
+        <%}%>
+        <button class="next-btn" >Another <%=type%> joke!</button>
+        <button class="next-btn" > Now a 
+            <%if (type==='single'){%>
+            two part joke!
+            <%}else{%>
+                single joke!
+            <%}%>
+        </button>
+    </div>
+</body>
+</html>
