@@ -8,7 +8,7 @@ app.set('view engine','ejs');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/single',(req,res,next)=>{
+app.get('/',(req,res,next)=>{
     axios.get('https://sv443.net/jokeapi/v2/joke/Any?type=single')
     .then(response=>{
         // console.log(response.data);
@@ -26,23 +26,23 @@ app.get('/single',(req,res,next)=>{
     });
 });
 
-app.get('/twopart',(req,res,next)=>{
-    axios.get('https://sv443.net/jokeapi/v2/joke/Any?type=twopart')
-    .then(response=>{
-        res.render('index',{
-            category:response.data.category,
-            setup:response.data.setup,
-            delivery:response.data.delivery,
-            id:response.data.id,
-            type:response.data.type
-        });   
-    })
-    .catch(err=> 
-        {
-        res.status(500).send('Oops something went wrong!');
-        console.log(err);
-        });
-})
+// app.get('/twopart',(req,res,next)=>{
+//     axios.get('https://sv443.net/jokeapi/v2/joke/Any?type=twopart')
+//     .then(response=>{
+//         res.render('index',{
+//             category:response.data.category,
+//             setup:response.data.setup,
+//             delivery:response.data.delivery,
+//             id:response.data.id,
+//             type:response.data.type
+//         });   
+//     })
+//     .catch(err=> 
+//         {
+//         res.status(500).send('Oops something went wrong!');
+//         console.log(err);
+//         });
+// })
 
 
 app.listen(5000,()=>{

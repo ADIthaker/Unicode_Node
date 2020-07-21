@@ -20,19 +20,8 @@
                 <p  class="para" id="delivery">Delivery : <b><%=delivery%></b></p>
             <%}%>
        
-        <button class="btn" ><a href="<%=type==='single'? '/single':'twopart'%>">Another 
-            <%if (type==='twopart') {%>
-                two part 
-           <% }else {%>
-            <%=type%>
-            <%}%>
-            joke!</a></button>
-        <button class="btn"> <a href="<%=type==='twopart'? '/single':'twopart'%>">Now a 
-            <%if (type==='single'){%>
-            two part joke!
-            <%}else{%>
-                single joke!
-            <%}%>
+        <button class="btn" ><a href='single'>Single Joke</a></button>
+        <button class="btn"> <a href='twopart'>Twopart Joke
         </a>
         </button>
     </div>
