@@ -4,23 +4,27 @@
     box-sizing: border-box;
     font-family: 'Sora', sans-serif;
 }
+.centerdiv{
+    width: 100%;
+    height: 100%;
+}
 .root{
-   max-width: 400px;
-   width :300px;
-    height: 50%;
+    width: 400px;
+    max-height: 500px;
+    width : 300px;
     position: relative;
-    top:0%;
     left:50%;
-    transform:translate(-50%,50%);
+    transform: translate(-50%,25%); 
+    word-wrap: normal;
+    position: relative;
     border: 1px solid black;
-    padding: 10px 16px;
-
+    padding: 10px 19px;
 }
 .para{
-    margin:19px ;
+    margin:22px;
 }
 button{
-    width:150px;
+    width:110px;
     padding:8px 8px;
     background-color:#eee;
     color:black;
@@ -32,17 +36,23 @@ button{
 button a{
     text-decoration: none;
     color:black
-
 }
 button:hover{
-    background-color: #ccc;
+    background-color: #ddd;
     cursor:pointer;
-   
 }
 @media (min-width:500px){
+    .centerdiv{
+        width: 100%;
+        height: 100%;
+    }
     .root{
         min-width:500px;
+        max-height:450px;
         width:600px;
+        position: relative;
+        left:50%;
+        transform: translate(-50%,50%);    
     }
     button{
         width:200px;
@@ -57,3 +67,50 @@ button:hover{
         color:black;
     }
 }
+#spinner{
+    visibility: hidden;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right: 0;
+    margin: auto;
+    background-color: rgba(256,256,256,0);
+    
+  }
+  #spinner:after,#spinner:before{
+      content: '';
+      display: block;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+  }
+  #spinner:after{
+      background-color:rgba(256,256,256,0) ;
+      position: absolute;
+      top:-3px;
+      left:-3px;
+      border: 3px solid transparent;
+      border-top-color: #bbb;
+      border-bottom-color:#bbb ;
+      animation: spinnah 2s ease infinite;
+  }
+  @keyframes spinnah{
+      0%{
+            transform: rotate(0deg) scale(0.5);
+      }
+      50%{
+        transform: rotate(180deg) scale(1);
+      }
+      100%{
+          transform: rotate(360deg) scale(0.5);
+      }
+  }
+ 
+  
+  #spinner.show {
+    visibility: visible;
+  }

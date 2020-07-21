@@ -8,23 +8,143 @@
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-    <div class='root' id="root">
-        <h1>Jokes API</h1>
-        <p class="para" id="id">Id : <%=id%></p>
-        <p class="para" id="category">Category : <%=category%></p>
+    <div class="center-div">
+        <div class='root' id="root">
+            <h1>Jokes API</h1>
+            <div id="spinner"></div> 
+            <p class="para" id="id">Id : <%=id%></p>
+            <p class="para" id="category">Category : <%=category%></p>
+            
+                <% if (type==='single') {%>
+                    <p class="para" id="joke">Joke : <%=joke%></p>
+                
+                    <p  class="para" id="setup" style="display: none;">Setup : </p>
+                    <p  class="para" id="delivery"  style="display: none;">Delivery :</p>
+                <%}else{%>
+                    <p class="para" id="joke" style="display: none;">Joke : </p>
+                
+                    <p  class="para" id="setup" >Setup : <%=setup%></p>
+                    <p  class="para" id="delivery"  >Delivery :<%=delivery%></p>
+                <%}%>
         
-            <% if (type==='single') {%>
-                <p class="para" id="joke">Joke :<b><%=joke%></b></p>
-            <%}else{%>
-                <p  class="para" id="setup">Setup : <i><%=setup%></i></p>
-                <p  class="para" id="delivery">Delivery : <b><%=delivery%></b></p>
-            <%}%>
-       
-        <button class="btn" ><a href='single'>Single Joke</a></button>
-        <button class="btn"> <a href='twopart'>Twopart Joke
-        </a>
-        </button>
-    </div>
+            <button class="btn" onclick='singleJokeLoader()' ><a href='/'>Single Joke</a></button>
+            <button class="btn" onclick='twopartJokeLoader()'>Twopart Joke
+            
+            </button>
+        </div>
+    </div> 
+    <script>
+        function singleJokeLoader(){
+            var url = "https://sv443.net/jokeapi/v2/joke/Any?type=single";
+            var http_request;
+            http_request =new XMLHttpRequest();
+            http_request.onreadystatechange =function (){
+                if(this.readyState==4 && this.status==200){
+                    
+                    let jsonObj = JSON.parse(http_request.responseText);
+                    let joke = document.getElementById('joke');
+                    
+                    let category =document.getElementById('category');
+                    let id =document.getElementById('id');
+                    id.innerHTML ="Id : "+jsonObj.id;
+                    category.innerHTML = "Category : "+jsonObj.category;
+                    joke.innerHTML = "Joke : " + jsonObj.joke;
+                    console.log("renderig DOM single");
+                    hideSpinner();
+                    id.setAttribute("style","visibility:visible");
+                    category.setAttribute("style","visibility:visible");
+                    
+                    joke.setAttribute("style","visibility:visible");
+                    joke.setAttribute("style","display: block");
+                    
+                }
+            }
+            http_request.open("GET",url,true);
+            http_request.send();
+            console.log("in request single")
+            //getting all the tags needed
+            let joke = document.getElementById('joke');
+            let category =document.getElementById('category');
+            let id =document.getElementById('id');
+            let setup = document.getElementById('setup');
+            let delivery = document.getElementById('delivery');
+            //hiding setup and delivery 
+            setup.setAttribute("style","display: none");
+            delivery.setAttribute("style","display: none");
 
+            id.setAttribute("style","visibility:hidden");
+            category.setAttribute("style","visibility:hidden");
+
+            joke.setAttribute("style","visibility:hidden");
+            
+
+            showSpinner();
+        }
+        function twopartJokeLoader(){
+            var url = "https://sv443.net/jokeapi/v2/joke/Any?type=twopart";
+            var http_request;
+            http_request =new XMLHttpRequest();
+            http_request.onreadystatechange =function (){
+                if(this.readyState == 4 && this.status==200){
+                    //convert to json
+                    let jsonObj = JSON.parse(http_request.responseText);
+                    //get all the ids
+                    let setup = document.getElementById('setup');
+                    let delivery = document.getElementById('delivery');
+                    let category =document.getElementById('category');
+                    let id =document.getElementById('id');
+                    console.log("renderig DOM twopart");
+                    id.innerHTML ="Id : "+jsonObj.id;
+                    category.innerHTML = "Category : "+jsonObj.category;
+                    setup.innerHTML = "Setup : " + jsonObj.setup;
+                    delivery.innerHTML = "Delivery : " + jsonObj.delivery;
+                    hideSpinner();//hide the spinner and start showing dom
+                    id.setAttribute("style","visibility:visible");//showing perm tags
+                    category.setAttribute("style","visibility:visible");//showing permanenet tags
+                    
+                    setup.setAttribute("style","visibility:visible");
+                    delivery.setAttribute("style","visibility:visible");
+                    setup.setAttribute("style","display: block");
+                    delivery.setAttribute("style","display: block");
+                    
+                }
+            }
+            console.log("in request twopart")
+            http_request.open("GET",url,true);
+            http_request.send();
+            let joke = document.getElementById('joke');
+            let setup = document.getElementById('setup');
+            let delivery = document.getElementById('delivery');
+            let category =document.getElementById('category');
+            let id =document.getElementById('id');
+
+            joke.setAttribute("style","display: none");
+
+            id.setAttribute("style","visibility:hidden");
+            category.setAttribute("style","visibility:hidden");
+
+            setup.setAttribute("style","visibility:hidden");
+            delivery.setAttribute("style","visibility:hidden");
+            
+
+            showSpinner();
+        }
+        const spinner = document.getElementById("spinner");
+
+        function showSpinner() {
+        spinner.className = "show";
+        setTimeout(() => {
+            spinner.className = spinner.className.replace("show", "");
+        }, 5000);
+        }
+
+        function hideSpinner() {
+          spinner.className = spinner.className.replace("show", "");
+        }
+
+       
+        
+        
+    </script>
 </body>
 </html>
