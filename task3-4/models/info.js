@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const infoSchema = new Schema({
-    name:{
+    First:{
+        type:String,
+        required:true
+    },
+    Last:{
         type:String,
         required:true
     },
@@ -12,6 +16,11 @@ const infoSchema = new Schema({
     Maths:{
         type:Number,
         required:true,
+    },
+    Average:{
+        type:Number,
+        requried:true,
+        index:true,
     }
 
 });

@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Validation</title>
-</head>
-<body>
-    <div class="root">
-       <h1>Form Element</h1>
-    </div>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Form</title>
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <div class="root">
+            <section class="form-wrapper">
+                <form method="POST" class="form" action="/postedmarks" >
+                    <p id="title">Marks</p>
+                    <div class="form-input-field">
+                        <input  type="text" name="fname" id="fname" class="input" placeholder=" " autocomplete="off"/>
+                        <label for="name" class="label"> First Name</label>
+                    </div>
+                    <div class="form-input-field">
+                        <input  type="text" name="lname" id="lname" class="input" placeholder=" " autocomplete="off"/>
+                        <label for="name" class="label"> Last Name</label>
+                    </div>
+                    <div class="form-input-field">
+                        <input  type="text" name="english" id="emarks" placeholder=" " class="input" autocomplete="off"/>
+                        <label for="emarks" class="label">English Marks</label>
+                    </div>
+                    <div class="form-input-field">
+                        <input  type="text" name="maths"  id="mmarks" placeholder=" " class="input" autocomplete="off"/>
+                        <label for="mmarks" class="label">Maths Marks</label>
+                    </div>
+                    <button type="submit" class="btn">Submit</button>
+                </form>
+            </section>
+        </div>
+    </body>
 </html>

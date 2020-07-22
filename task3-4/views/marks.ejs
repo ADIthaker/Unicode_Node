@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks</title>
+    <link rel="stylesheet" href="/css/marks.css" />
+</head>
+<body>
+    <div class="root">
+        <div class="div-wrapper">
+            <h1 style="text-align: center;"> List of Marks</h1>
+            <ul class="list">
+                <% for(let l of list) {%>
+                <ul>
+                    <li class="el-list">First Name : <b> <%=l.First%></b></li>
+                    <li class="el-list">Last Name : <b> <%=l.Last%></b></li>
+                    <li class="el-list">Math Score : <b> <%=l.Maths%></b></li>
+                    <li class="el-list">English Score : <b> <%=l.English%></b></li>
+                    <li class="el-list">Average Score : <b> <%=l.Average%></b></li>
+                </ul>
+                <%}%>
+            </ul>
+        </div>
+
+    </div>
+</body>
+</html>
