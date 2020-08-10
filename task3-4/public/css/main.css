@@ -61,6 +61,7 @@
     cursor:pointer;
     color:black;
     width:200px;
+    border-radius: 23px;
 }
 .form-input-field{
     width: 75%;
